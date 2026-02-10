@@ -1,0 +1,344 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --breakpoint-xs: 440px;
+  --breakpoint-2xl: 1440px;
+
+  --font-jakarta-plus: var(--font-jakarta-plus);
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-tertiary: hsl(var(--tertiary));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-shimmer: shimmer 1.6s infinite;
+  --animate-wave: wave 1.2s ease-in-out infinite;
+  --animate-blink: blink 1.6s ease-in-out infinite;
+  --animate-hourglass: hourglass 2s ease-in-out infinite;
+  --animate-text-shimmer: text-shimmer 6.4s infinite;
+  --animate-scale-up-down: scale-up-down 1.2s ease-in-out infinite;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  @keyframes wave {
+    0%,
+    100% {
+      transform: translateY(0px) scale(1);
+    }
+    50% {
+      transform: translateY(-2px) scale(1.2);
+    }
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0.5;
+    }
+  }
+  @keyframes hourglass {
+    0% {
+      transform: rotate(0deg);
+    }
+    30% {
+      transform: rotate(180deg);
+    }
+    70% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  @keyframes scale-up-down {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+  @keyframes text-shimmer {
+    0%,
+    90%,
+    100% {
+      background-position: calc(-100% - var(--shimmer-width)) 0;
+    }
+    30%,
+    60% {
+      background-position: calc(100% + var(--shimmer-width)) 0;
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+
+  @media (width >= --theme(--breakpoint-xs)) {
+    max-width: none;
+  }
+
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility anim {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+@utility anim-slow {
+  @apply transition-all duration-500 ease-in-out;
+}
+
+@utility anim-fast {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+@utility dock-shadow {
+  box-shadow:
+    inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.1),
+    0 0 0 1px hsla(230, 13%, 9%, 0.075),
+    0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
+    0 0.9px 1.5px hsla(230, 13%, 9%, 0.045),
+    0 3.5px 6px hsla(230, 13%, 9%, 0.09);
+}
+
+@utility box-shadow {
+  box-shadow:
+    rgba(14, 63, 126, 0.06) 0px 0px 0px 1px,
+    rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px,
+    rgba(42, 51, 70, 0.04) 0px 2px 2px -1px,
+    rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px,
+    rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px,
+    rgba(42, 51, 70, 0.03) 0px 10px 10px -5px,
+    rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+
+  .dark & {
+    box-shadow:
+      rgba(0, 0, 0, 0.5) 0px 0px 0px 1px,
+      rgba(0, 0, 0, 0.4) 0px 1px 1px -0.5px,
+      rgba(0, 0, 0, 0.3) 0px 2px 2px -1px,
+      rgba(0, 0, 0, 0.3) 0px 3px 3px -1.5px,
+      rgba(0, 0, 0, 0.25) 0px 5px 5px -2.5px,
+      rgba(0, 0, 0, 0.2) 0px 10px 10px -5px,
+      rgba(0, 0, 0, 0.15) 0px 24px 24px -8px;
+  }
+}
+
+@utility no-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --tertiary: 210 63% 52%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+    --selection: 60 100% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 0 0% 7%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
+    --tertiary: 215 45% 60%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 95%;
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 80%;
+    --selection: 0 0% 25%;
+  }
+
+  html {
+    @apply no-scrollbar;
+  }
+
+  *,
+  body {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground m-0 min-w-64 overflow-x-hidden p-0;
+  }
+}
+
+@layer components {
+  button,
+  a {
+    @apply focus-visible:ring-ring/40 ring-offset-background focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden;
+  }
+
+  ::selection {
+    background: hsl(var(--accent));
+    color: hsl(var(--tertiary));
+  }
+}
+
+@layer components {
+  .toast {
+    @apply flex w-full cursor-grab items-center rounded-md border px-3 py-2 text-sm shadow-xs;
+    background-color: var(--color-popover);
+    color: var(--color-popover-foreground);
+    border-color: var(--color-border);
+
+    @media (min-width: 640px) {
+      width: 356px;
+    }
+  }
+
+  .toast .title {
+    @apply font-semibold;
+  }
+
+  .toast .description {
+    color: var(--color-muted-foreground);
+  }
+
+  .toast .icon {
+    @apply mr-2;
+    color: var(--color-popover-foreground);
+  }
+
+  .toast svg.info {
+    color: var(--color-popover);
+    fill: var(--color-blue-500);
+  }
+
+  .toast svg.success {
+    color: var(--color-popover);
+    fill: var(--color-green-500);
+  }
+
+  .toast svg.destructive {
+    color: var(--color-popover);
+    fill: var(--color-red-500);
+  }
+
+  .toast .close-button {
+    @apply absolute rounded-full border p-0.5 text-xl;
+    top: -0.25rem;
+    right: -0.25rem;
+    background-color: var(--color-popover);
+    color: var(--color-popover-foreground);
+    border-color: var(--color-border);
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+  }
+}

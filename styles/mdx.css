@@ -1,0 +1,39 @@
+@reference "./globals.css";
+
+blockquote.mdx {
+  @apply border-s-2 border-zinc-500 bg-gradient-to-r from-zinc-500/20 to-transparent px-4 py-2 text-zinc-700 dark:text-zinc-200;
+}
+
+blockquote.mdx.info {
+  @apply border-s-2 border-blue-500 from-blue-500/20 text-blue-700 dark:text-blue-200;
+}
+
+blockquote.mdx.success {
+  @apply border-s-2 border-green-500 from-green-500/20 text-green-700 dark:text-green-200;
+}
+
+blockquote.mdx.warning {
+  @apply border-s-2 border-amber-500 from-amber-500/20 text-amber-700 dark:text-yellow-200;
+}
+
+blockquote.mdx.danger,
+blockquote.mdx.dangerous {
+  @apply border-s-2 border-red-500 from-red-500/20 text-red-700 dark:text-red-200;
+}
+
+blockquote.mdx p {
+  @apply !mb-0 text-sm text-inherit;
+}
+
+iframe {
+  @apply mb-4;
+}
+
+hr {
+  @apply relative my-6 h-8 border-none bg-none text-center;
+}
+
+hr::after {
+  content: "︵︵﹆ . ⁺ . ✦ ﹒₊˚𓂃 ★﹒₊‧";
+  @apply text-muted-foreground/60 h-8 font-mono !text-sm tracking-normal;
+}

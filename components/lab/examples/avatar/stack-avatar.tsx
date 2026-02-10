@@ -1,0 +1,33 @@
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+export const StackAvatar = () => {
+  return (
+    <div className="flex items-center gap-2">
+      <div className="flex -space-x-2">
+        <Avatar className="border-background size-8 border-2">
+          <AvatarImage
+            src="https://github.com/bagusrizal22.png"
+            alt="User 1 Avatar"
+          />
+          <AvatarFallback>BR</AvatarFallback>
+        </Avatar>
+        <Avatar className="border-background size-8 border-2">
+          <AvatarImage
+            src="https://github.com/prampokan.png"
+            alt="User Avatar 3"
+          />
+          <AvatarFallback>MS</AvatarFallback>
+        </Avatar>
+        <Avatar className="border-background size-8 border-2">
+          <AvatarImage
+            src="https://github.com/leerob.png"
+            alt="User 3 Avatar"
+          />
+          <AvatarFallback>MS</AvatarFallback>
+        </Avatar>
+      </div>
+
+      <p className="text-xs font-medium">+100</p>
+    </div>
+  );
+};
