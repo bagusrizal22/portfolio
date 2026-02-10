@@ -7,7 +7,7 @@ import { Database } from "@/types/database.types";
 const createServerClientWithKey = (key: string) => {
   const cookieStore = cookies();
 
-  return createServerClient<Database>(
+  return createServerClient<Database, "public">(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     key,
     {
