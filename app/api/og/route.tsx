@@ -54,7 +54,7 @@ export async function GET() {
             fontFamily: '"InstrumentSerif"',
           }}
         >
-          Salmoon, Product Engineer
+          Bagus Rizal Valdianto, Fullstack Engineer
         </div>
       </div>
     ),

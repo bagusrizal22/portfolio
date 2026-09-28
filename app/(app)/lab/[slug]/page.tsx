@@ -21,6 +21,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import CodeWrapper from "@/components/motion/code-wrapper";
 
+import { siteItems } from "@/lib/config";
 import { COMPONENTS } from "@/lib/data";
 import { mapComponentToToc } from "@/lib/functions";
 import { getFilePathAndConfig } from "@/lib/read-file";
@@ -114,7 +115,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             className="text-muted-foreground h-9 w-9"
           >
             <Link
-              href={`https://x.com/intent/tweet?text=${item?.name}&url=https://salmoon.vercel.app/lab/${item?.slug}`}
+              href={`https://x.com/intent/tweet?text=${item?.name}&url=${siteItems.url || "https://bagusrizal.my.id"}/lab/${item?.slug}`}
               target="_blank"
               rel="noopener noreferrer"
               scroll={true}
@@ -130,7 +131,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             <p>{item.description}</p>
             <div className="flex flex-col gap-y-3">
               <Link
-                href={`https://github.com/msafdev/salmoon/tree/main/components/lab/${item.slug}.tsx`}
+                href={`https://github.com/bagusrizal22/portfolio/tree/main/components/lab/${item.slug}.tsx`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="anim hover:text-foreground inline-flex w-fit items-center gap-2 text-sm font-medium"
@@ -140,7 +141,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 Star
               </Link>
               <Link
-                href={`https://github.com/msafdev/salmoon/tree/main/lib/utils.ts`}
+                href={`https://github.com/bagusrizal22/portfolio/tree/main/lib/utils.ts`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="anim hover:text-foreground inline-flex w-fit items-center gap-2 text-sm font-medium"

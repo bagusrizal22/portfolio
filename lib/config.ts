@@ -11,12 +11,12 @@ export const siteItems = {
   appName: "BagusRizal",
   description:
     "When creativity meets perfection, you get me. A freelance product engineer / fullstack developer with a passion for building pretty products.",
-  name: "Salman Alfarisi",
+  name: "Bagus Rizal Valdianto",
   url: process.env.NEXT_PUBLIC_BASE_URL,
   role: "Fullstack Engineer",
   links: {
     twitter: "https://twitter.com/bagusrizalll",
-    github: "https://github.com/gojenghyah",
+    github: "https://github.com/bagusrizal22",
     email: "bagusrizal175@gmail.com",
     personalSite: "https://bagusrizal.my.id",
   },

@@ -205,8 +205,7 @@ const Footer = () => {
                 asChild
               >
                 <Link
-                  // href={"https://msafdev.substack.com"}
-                  href={""}
+                  href={"#"}
                   aria-label="My Substack newsletter"
                   target="_blank"
                   rel="noopener noreferrer"

@@ -16,6 +16,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/"],
       },
     ],
-    sitemap: "https://salmoon.vercel.app/sitemap.xml",
+    sitemap: "https://bagusrizal.my.id/sitemap.xml",
   };
 }

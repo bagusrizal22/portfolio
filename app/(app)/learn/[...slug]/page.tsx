@@ -114,7 +114,7 @@ export default async function LearnPage({ params }: LearnPageProps) {
             className="text-muted-foreground h-9 w-9"
           >
             <Link
-              href={`https://x.com/intent/tweet?text=${learn?.title}&url=https://salmoon.vercel.app/${learn?.slug}`}
+              href={`https://x.com/intent/tweet?text=${learn?.title}&url=${siteItems.url || "https://bagusrizal.my.id"}/${learn?.slug}`}
               target="_blank"
               rel="noopener noreferrer"
               scroll

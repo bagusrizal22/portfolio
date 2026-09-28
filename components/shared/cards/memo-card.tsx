@@ -108,20 +108,20 @@ const MemoCard = () => {
         <div className="flex items-center justify-between">
           <Scribble className="-rotate-3 text-center leading-none">
             With love, <br />
-            Salman
+            Bagus
           </Scribble>
           <div className="flex items-center gap-x-2">
             <Avatar className="size-8">
               <AvatarImage
                 src="/assets/ava.webp"
-                alt="Salman's avatar image."
+                alt="Bagus's avatar image."
                 loading="lazy"
               />
-              <AvatarFallback className="size-8">MS</AvatarFallback>
+              <AvatarFallback className="size-8">BR</AvatarFallback>
             </Avatar>
             <div className="flex flex-col gap-y-1">
               <p className="text-sm leading-none font-semibold">
-                Salman Alfarisi
+                Bagus Rizal Valdianto
               </p>
               <span className="text-muted-foreground text-xs leading-none">
                 Founder of Oddin

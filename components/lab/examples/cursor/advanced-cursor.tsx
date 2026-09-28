@@ -10,7 +10,7 @@ export const AdvancedCursor = () => {
           <PiHandPointingDuotone className="size-5 -rotate-12" />
         </CursorPointer>
         <CursorBody>
-          <p>Salman</p>
+          <p>Bagus</p>
           <p>Star the repo!</p>
         </CursorBody>
       </Cursor>

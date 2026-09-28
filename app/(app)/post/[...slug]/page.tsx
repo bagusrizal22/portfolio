@@ -109,7 +109,7 @@ export default async function PostPage({ params }: PostPageProps) {
             className="text-muted-foreground h-9 w-9"
           >
             <Link
-              href={`https://x.com/intent/tweet?text=${post?.title}&url=https://salmoon.vercel.app/${post?.slug}`}
+              href={`https://x.com/intent/tweet?text=${post?.title}&url=${siteItems.url || "https://bagusrizal.my.id"}/${post?.slug}`}
               target="_blank"
               rel="noopener noreferrer"
               scroll={true}
