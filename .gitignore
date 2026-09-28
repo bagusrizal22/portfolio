@@ -43,3 +43,7 @@ next-env.d.ts
 
 # Velite
 .velite
+
+# Bun
+bun.lock*
+
