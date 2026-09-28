@@ -3,8 +3,6 @@ import Link from "next/link";
 
 import Scribble from "@/components/shared/scribble";
 
-import Line from "@/public/static/line.webp";
-
 const NotFound = () => {
   return (
     <div className="m-auto grid min-h-svh w-fit place-items-center gap-2 px-4 font-mono text-xs font-medium sm:text-sm">
@@ -17,7 +15,7 @@ const NotFound = () => {
         >
           go back
           <Image
-            src={Line}
+            src="/static/line.webp"
             alt="Underline SVG"
             width={64}
             height={8}
